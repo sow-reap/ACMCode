@@ -13,6 +13,7 @@ int dfs(int x, int y)
 	return dfs(x-1,y)||dfs(x, y+1)||dfs(x+1, y)||dfs(x, y-1);
 }
 </code>
-<a href="http://acm.zknu.edu.cn/problem.php?id=1835">试题来源</a>
+<h2>试题来源于ZKNU_OJ</h2>
+<a href="http://acm.zknu.edu.cn/problem.php?id=1835">试题来源</a><br />
 需注意，本代码还未完全完成该题的求解，不能直接提交<br />
 本题还需重复进行多次搜索，若最新两次搜索都未发现新的钥匙或宝藏，则失败，否则成功，具体原因见视频回放。
