@@ -1,0 +1,64 @@
+package ACM;
+
+/*
+ * 问题描述 
+给定 n副卡牌，每张卡牌具有正反面，正面朝上数字为ai，背面朝上数字为bi。一副卡牌的价值为正面朝上数字之和。
+一开始所有卡牌都是正面朝上的。小蓝是蓝桥学院最优秀的魔法师，他知道所有卡牌的背面数字b2,
+他最多可以进行 k 次操作，每次可以将一副卡牌翻转，将正面朝上的数字变为背面朝上的数字，
+或将背面朝上的数字变为正面朝上的数字。请问，小蓝最多可以使卡牌的价值之和为多少？
+输入格式
+第一行输入两个整数n和k，表示卡牌的数量和小蓝可以操作的次数。
+第二行输入n个整数a，表示所有卡牌正面的数字。
+第三行输入n个整数61，表示所有卡牌反面的数字。
+数据范围保证：1≤n≤1x105, 1 ≤ ai,bj,k < 109.
+输出格式
+输出一个整数，表示可以得到的卡牌的最大价值和。
+样例输入
+3 1
+1 2 3
+3 2 1
+样例输出
+8
+*/
+import java.util.*;
+//1:无需package
+//2: 类名必须Main, 不可修改
+
+public class Day_7_24_1 {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int n = scan.nextInt();
+		int k = scan.nextInt();
+		List<Integer> a = new ArrayList<>();
+		List<Integer> b = new ArrayList<>();
+		List<Integer> subtract = new ArrayList<>();
+		long sum = 0;
+		// 正面录入，直接加入总数，按照差值进行排序
+		for (int i = 0; i < n; i++) {
+			int num = scan.nextInt();
+			sum += (long) num;
+			a.add(num);
+		}
+		// 反面录入
+		for (int i = 0; i < n; i++) {
+			int num = scan.nextInt();
+			b.add(num);
+		}
+		// 相减求差值
+		for (int i = 0; i < n; i++) {
+			subtract.add(b.get(i) - a.get(i));
+		}
+		// 差值排序
+		Collections.sort(subtract, Collections.reverseOrder());
+		// 用最大的差值，如果换了反而更小就不换
+		n = Math.min(n, k);
+		for (int i = 0; i < n; i++) {
+			if (subtract.get(i) > 0) {
+				sum += subtract.get(i);
+			}
+
+		}
+		System.out.println(sum);
+		scan.close();
+	}
+}
