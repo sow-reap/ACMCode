@@ -1,3 +1,7 @@
+//这个程序看上去是On，但是n很大会超时，
+//可以发现每层塔是2^n-1,那么
+//通过快速幂直接求值会更简单更快
+//2024.8.5
 #include<iostream>
 using namespace std;
 int n;
