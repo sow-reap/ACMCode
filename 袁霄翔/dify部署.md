@@ -29,7 +29,7 @@ Registry Mirrors:
   https://docker.rainbond.cc/
 </code>
 重启docker。
-<h2>二、在“dify-main/docker”目录下执行“docker-compose”发布dify</h2>
+<h2>二、在“dify-main/docker”目录下执行“docker-compose up -d”发布dify</h2>
 <h3>发布dify后，提示服务器内部错误</h3>
 <p>将下图的.env文件格式由unix转为windows（可以使用Notepad++实现），然后重新部署即可。</p>
 ![image](https://github.com/user-attachments/assets/fdcff9a8-619a-49b6-904d-7ff5ede9d8f7)
